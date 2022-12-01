@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,7 +18,7 @@ public class ProdutosService {
     private static List<Produto> produtos;
     private final ProdutoRepository produtoRepository;
 
-    static {
+    /*static {
         produtos = new ArrayList<>(List.of(new Produto(1L,
                         "Carioca",
                         "jdçlkasjdla",
@@ -32,7 +31,7 @@ public class ProdutosService {
                         "Intenso",
                         3.50,
                         "tradicional")));
-    }
+    }*/
 
     public List<Produto> getAllProdutos() {
         return produtoRepository.findAll();
