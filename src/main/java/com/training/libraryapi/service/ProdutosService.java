@@ -1,6 +1,7 @@
 package com.training.libraryapi.service;
 
 import com.training.libraryapi.domain.Produto;
+import com.training.libraryapi.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ProdutosService {
 
     private static List<Produto> produtos;
+    private final ProdutoRepository produtoRepository;
 
     static {
         produtos = new ArrayList<>(List.of(new Produto(1L,
@@ -33,21 +35,23 @@ public class ProdutosService {
     }
 
     public List<Produto> getAllProdutos() {
-        return produtos;
+        return produtoRepository.findAll();
     }
 
     public Produto findById(long id) {
-        return produtos.stream()
-                .filter(produto -> produto.getId().equals(id))
-                .findFirst()
+        return produtoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Produto não encontrado"));
 
     }
 
     public long totalProdutos() {
-        long qtdProdutos = produtos.size();
+        long qtdProdutos = produtoRepository.findAll().size();
         log.info("Quantidade de Produtos: {}", qtdProdutos);
         return qtdProdutos;
+    }
+
+    public Produto save(Produto produto) {
+        return produtoRepository.save(produto);
     }
 
 }

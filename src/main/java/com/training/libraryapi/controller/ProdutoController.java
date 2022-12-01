@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/produtos")
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class ProdutoController {
 
     @Autowired
@@ -33,10 +33,10 @@ public class ProdutoController {
     public ResponseEntity<Long> qtdProduto() {
         return ResponseEntity.ok(produtosService.totalProdutos());
     }
-   /* @PostMapping
-    public ResponseEntity<Produto> saveProduto(@RequestBody Produto produto){
+    @PostMapping
+    public ResponseEntity<Produto> savedProduto(@RequestBody Produto produto){
         return new ResponseEntity<>(produtosService.save(produto), HttpStatus.CREATED);
-    }*/
+    }
 
 
 }
