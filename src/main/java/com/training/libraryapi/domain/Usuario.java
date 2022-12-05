@@ -29,7 +29,7 @@ public class Usuario {
 	@Size(min = 5, max = 100)
 	private String senha;
 	
-	private String foto;
+	private String email;
 	
 	private String tipo; 
 	

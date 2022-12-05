@@ -10,7 +10,7 @@ public class UserLogin {
     private String usuario;
     private String senha;
     private String token;
-    private String foto;
+    private String email;
     private String tipo;
 
 }
