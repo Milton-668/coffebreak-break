@@ -28,13 +28,9 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		//log.info("Password encoded {}", passwordEncoder.encode("test"));
 		auth.inMemoryAuthentication()
-				.withUser("junior")
-				.password(passwordEncoder.encode("academy"))
-				.roles("USER", "ADMIN")
-				.and()
-				.withUser("maycon")
-				.password(passwordEncoder.encode("academy"))
-				.roles("USER");
+				.withUser("root")
+				.password(passwordEncoder.encode("root"))
+				.roles("USER", "ADMIN");
 		auth.userDetailsService(userDetailsService);
 	}
 	
