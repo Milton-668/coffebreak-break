@@ -28,10 +28,11 @@ public class Usuario {
 	@NotNull
 	@Size(min = 5, max = 100)
 	private String senha;
+
+    @NotNull
+	private String email;
 	
-	private String foto;
-	
-	private String tipo; 
+	//private String tipo;
 	
 	@OneToMany(mappedBy = "usuario",cascade= CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
